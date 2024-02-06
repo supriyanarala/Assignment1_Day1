@@ -4,9 +4,9 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import java.io.IOException;
 
-public class xxx {
+public class userReg {
 
-    private static final String BASE_PATH = "C:\\Users\\Supriya Pappula\\Downloads";
+  //  private static final String BASE_PATH = "C:\\Users\\Supriya Pappula\\Downloads";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -45,7 +45,7 @@ public class xxx {
         String folderName = scanner.next();
 
         // Combine the base path with the folder name
-        Path folderPath = Paths.get(BASE_PATH, folderName);
+        Path folderPath = Paths.get( folderName);
 
         try {
             // Create the folder
