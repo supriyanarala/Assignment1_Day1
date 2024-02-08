@@ -17,11 +17,9 @@ public class UserDetails
     public Path filePath;
     public static void main(String[] args) throws IOException, InterruptedException, JSONException {
 
-
         String[] userData = new String[10];
         Random random = new Random();
         String folderName = "acc_"+random.nextInt(1000);
-
 
         List<String> mydata = new ArrayList();
         mydata.add("1.Register");
@@ -58,10 +56,8 @@ public class UserDetails
         System.out.print("Enter Vacation Bookings: ");
         String vacation = scanner.nextLine();
 
-
         // Create JSON object
         JSONObject accountData = new JSONObject();
-
         accountData.put("name", name);
         accountData.put("email", email);
         accountData.put("phonenumber", phoneNumber);
@@ -97,12 +93,9 @@ public class UserDetails
     private static void WriteToFile(JSONObject accountData, String folderName) throws IOException, JSONException {
         Path filePath = Paths.get(folderName, folderName+".json");
         Files.createFile(filePath);
-       // Write data to JSON file for that Create JSON array
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.put(accountData);
-        // Write data to JSON file
+        //Write data to file
         try (FileWriter fileWriter = new FileWriter(String.valueOf(filePath))) {
-            fileWriter.write(jsonArray.toString());
+            fileWriter.write(accountData.toString());
             System.out.println("Data has been written to " + filePath);
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file.");
@@ -114,11 +107,9 @@ public class UserDetails
 
         // Combine the base path with the folder name
         Path folderPath = Paths.get(folderName);
-
         try {
             // Create the folder
             Files.createDirectory(folderPath);
-
             System.out.println("Folder '" + folderName + "' created successfully in Downloads."+ folderPath.toAbsolutePath());
         } catch (IOException e) {
             System.out.println("Error creating folder: " + e.getMessage());
