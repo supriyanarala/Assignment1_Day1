@@ -89,7 +89,6 @@ public class UserDetails
         scanner.close();
     }
 
-
     private static void WriteToFile(JSONObject accountData, String folderName) throws IOException, JSONException {
         Path filePath = Paths.get(folderName, folderName+".json");
         Files.createFile(filePath);
